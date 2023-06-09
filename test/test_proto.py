@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from hgen.proto import Protos
+from genheader.proto import Protos
 from termcolor import cprint
 
 
