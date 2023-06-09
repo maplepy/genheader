@@ -61,7 +61,7 @@ class Protos:
                     break
 
             self.prototypes.append(f"{collected};")
-            print(f"Prototype found: {collected}")
+            # print(f"Prototype found: {collected}")
 
     def __len__(self) -> int:
         """Return the number of function prototypes."""
