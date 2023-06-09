@@ -50,13 +50,14 @@ def _align_protos_indentation(protolist: "list[Protos]"):
     def before_len(proto):
         return len(proto.split(TAB)[0])
 
-    def get_longest_prototype_len():
+    def get_longest_funcname_len():
         result = 0
         for container in protolist:
             for proto in container:
-                result = max(result, before_len(proto))
-
-        return result + 4  # tabs
+                funcname_parts = proto.split("(")[0].rsplit(" ", maxsplit=1)
+                if len(funcname_parts) > 1:
+                    result = max(result, len(funcname_parts[1]))
+        return result
 
     def in_loop():
         parts = proto.split("(")
@@ -99,7 +100,7 @@ def _align_protos_indentation(protolist: "list[Protos]"):
 
         return result
 
-    longest = get_longest_prototype_len()
+    longest = get_longest_funcname_len()
 
     for container in protolist:
         results = []
@@ -112,6 +113,8 @@ def _align_protos_indentation(protolist: "list[Protos]"):
             results[-1] += "\n"
 
         container.prototypes = results
+
+
 
 
 def _protolist_to_strlist(protolist: "list[Protos]") -> "list[str]":
