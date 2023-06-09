@@ -7,12 +7,11 @@ from .utils import cstr
 
 
 def create_parser():
-    prog = "genheader"
-    "
+    prog = "hgen_maplepy"
     parser = ArgumentParser(
         prog=prog,
         usage=f"{prog} [-hv] [-r] -I header.h [path ...]",
-        description=cstr("green", "genheader: Generates prototypes in header from C files"),
+        description=cstr("green", "hgen_maplepy: Header prototype Generator (fixed by maplepy)"),
     )
     parser.add_argument(
         "-I",
