@@ -44,15 +44,7 @@ cleanup
 
 # Set the version using semver.py script
 VER="v$(setup_semver "$TYPE")"
-
-# Build the package
 build
-
-# Upload the package to the test PyPI repository
 upload
-
-# Refresh dependencies and push the changes
 refresh
-
-# Commit, tag, and push the release version
 push
